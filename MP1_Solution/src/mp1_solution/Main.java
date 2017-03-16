@@ -5,6 +5,8 @@
  */
 package mp1_solution;
 
+import java.io.File;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,7 +19,39 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        CyberBank bank = new CyberBank();
+        String inputFile = "";
+        String outputFile = "";
         
+        if(args.length == 0){
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+            
+            int openResult = fileChooser.showOpenDialog(null);
+            if(openResult == JFileChooser.APPROVE_OPTION){
+                inputFile = fileChooser.getSelectedFile().getAbsolutePath();
+            }
+            
+            int saveResult = fileChooser.showSaveDialog(null);
+            if(saveResult == JFileChooser.APPROVE_OPTION){
+                outputFile = fileChooser.getSelectedFile().getAbsolutePath();
+            }
+        }else{
+            inputFile = args[0];
+            outputFile = args[1];
+        }
+        
+        bank.loadBankData(inputFile);
+        
+        bank.saveBankData(outputFile);
     }
-    
+    /*
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+    int result = fileChooser.showOpenDialog(this);
+    if (result == JFileChooser.APPROVE_OPTION) {
+        File selectedFile = fileChooser.getSelectedFile();
+        System.out.println("Selected file: " + selectedFile.getAbsolutePath());
+    }
+*/
 }
