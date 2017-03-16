@@ -18,6 +18,14 @@ public class CyberBank {
     private double bankBalance;
     ArrayList<Customer> customers;
 
+    public CyberBank(){
+        bankName = "";
+        address = "";
+        phoneNumber = "";
+        bankBalance = 0.0;
+        customers = new ArrayList<>();
+    }
+    
     /**
      * @return the bankName
      */
