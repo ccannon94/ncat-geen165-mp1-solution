@@ -22,6 +22,17 @@ public class Customer {
     private int pin;
     ArrayList<Account> accounts;
 
+    public Customer(){
+        firstName = "";
+        lastName = "";
+        dob = "";
+        address = "";
+        phoneNumber = "";
+        customerId = 0;
+        pin = 0;
+        accounts = new ArrayList<>();
+    }
+    
     /**
      * @return the firstName
      */
