@@ -138,6 +138,16 @@ public class CyberBank {
         return customers.remove(index);
     }
     
+    public Customer authenticateCustomer(int custId, int pin){
+        for(int i = 0; i < customers.size(); i++){
+            if(customers.get(i).getCustomerId() == custId && customers.get(i).getPin() == pin){
+                return customers.get(i);
+            }
+        }
+        
+        return null;
+    }
+    
     @Override
     public String toString(){
         String customersString = "";
