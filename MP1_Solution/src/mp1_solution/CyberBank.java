@@ -5,7 +5,13 @@
  */
 package mp1_solution;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -149,7 +155,58 @@ public class CyberBank {
     }
     
     public void loadBankData(String inputFileName){
-        
+        try {
+            Scanner reader = new Scanner(new File(inputFileName));
+            
+            String[] bankLine = reader.nextLine().split("#");
+            
+            bankName = bankLine[0];
+            address = bankLine[1];
+            phoneNumber = bankLine[2];
+            
+            while(reader.hasNext()){
+                Customer newCust = new Customer();
+                
+                String[] customerLine = reader.nextLine().split("#");
+                
+                newCust.setFirstName(customerLine[0]);
+                newCust.setLastName(customerLine[1]);
+                newCust.setCustomerId(Integer.parseInt(customerLine[2]));
+                newCust.setDob(customerLine[3]);
+                newCust.setAddress(customerLine[4]);
+                newCust.setPhoneNumber(customerLine[5]);
+                newCust.setPin(Integer.parseInt(customerLine[6]));
+                
+                for(int i = 0; i < Integer.parseInt(customerLine[7]); i++){
+                    Account newAcct = new Account();
+                    
+                    String[] accountLine = reader.nextLine().split("#");
+                    
+                    newAcct.setAccountType(AccountType.valueOf(accountLine[0]));
+                    newAcct.setAccountNumber(accountLine[1]);
+                    
+                    for(int j = 0; i< Integer.parseInt(accountLine[3]); i++){
+                        Transaction newTrans = new Transaction();
+                        
+                        String[] transactionLine = reader.nextLine().split("#");
+                        
+                        newTrans.setTransactionType(TransactionType.valueOf(transactionLine[0]));
+                        newTrans.setDate(transactionLine[1]);
+                        newTrans.setAmount(Integer.parseInt(transactionLine[2]));
+                        newTrans.setDescription(transactionLine[3]);
+                        
+                        newAcct.addTransaction(newTrans);
+                    }
+                    
+                    newCust.addAccount(newAcct);
+                }
+                
+                addCustomer(newCust);
+            }
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Failed to Load Bank Data");
+            Logger.getLogger(CyberBank.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void saveBankData(String outputFileName){
