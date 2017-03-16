@@ -193,7 +193,7 @@ public class CyberBank {
                         
                         newTrans.setTransactionType(TransactionType.valueOf(transactionLine[0]));
                         newTrans.setDate(transactionLine[1]);
-                        newTrans.setAmount(Integer.parseInt(transactionLine[2]));
+                        newTrans.setAmount(Double.parseDouble(transactionLine[2]));
                         newTrans.setDescription(transactionLine[3]);
                         
                         newAcct.addTransaction(newTrans);
