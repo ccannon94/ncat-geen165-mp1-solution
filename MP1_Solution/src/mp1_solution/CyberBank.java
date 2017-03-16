@@ -137,4 +137,15 @@ public class CyberBank {
         
         return customers.remove(index);
     }
+    
+    @Override
+    public String toString(){
+        String customersString = "";
+        
+        for(int i = 0; i < customers.size(); i++){
+            customersString += System.lineSeparator() + customers.get(i).toString();
+        }
+        
+        return bankName + "#" + address + "#" + phoneNumber + customersString;
+    }
 }
