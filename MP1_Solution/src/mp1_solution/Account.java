@@ -59,4 +59,86 @@ public class Account {
         this.balance = balance;
     }
     
+    /**
+     * @return number of Transaction objects in ArrayList transactions
+     */
+    public int getNumTransactions(){
+        return transactions.size();
+    }
+    
+    /**
+     * @param index of the Transaction
+     * @return Transaction stored at given index
+     */
+    public Transaction getTransactions(int index){
+        return transactions.get(index);
+    }
+    
+    /**
+     * @param index location in ArrayList to add item
+     * @param item Transaction to be added
+     */
+    public void setTransaction(int index, Transaction item){
+        if(transactions.size() > index){
+            switch(transactions.get(index).getTransactionType()){
+                case debit:
+                    balance += transactions.get(index).getAmount();
+                    break;
+                case credit:
+                    balance -= transactions.get(index).getAmount();
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+        switch(item.getTransactionType()){
+            case debit:
+                balance -= item.getAmount();
+                break;
+            case credit:
+                balance += item.getAmount();
+            default:
+                break;
+        }
+        
+        transactions.set(index, item);
+    }
+    
+    /**
+     * @param item to be appended to ArrayList
+     */
+    public void addTransaction(Transaction item){
+        switch(item.getTransactionType()){
+            case debit:
+                balance -= item.getAmount();
+                break;
+            case credit:
+                balance += item.getAmount();
+            default:
+                break;
+        }
+        
+        transactions.add(item);
+    }
+    
+    /**
+     * @param index of Transaction to remove
+     * @return the Transaction that was removed from ArrayList
+     */
+    public Transaction deleteTransaction(int index){
+        switch(transactions.get(index).getTransactionType()){
+            case debit:
+                balance += transactions.get(index).getAmount();
+                break;
+            case credit:
+                balance -= transactions.get(index).getAmount();
+                break;
+            default:
+                break;
+        }
+        
+        return transactions.remove(index);
+    }
+    
 }
