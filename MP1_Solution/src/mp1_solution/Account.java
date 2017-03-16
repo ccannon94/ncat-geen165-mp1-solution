@@ -141,4 +141,15 @@ public class Account {
         return transactions.remove(index);
     }
     
+    @Override
+    public String toString(){
+        String transactionsString = "";
+        
+        for(int i = 0; i < transactions.size(); i++){
+            transactionsString += System.lineSeparator() + transactions.get(i).toString();
+        }
+        
+        return accountType + "#" + accountNumber + "" + balance + "#" + transactions.size() + transactionsString;
+    }
+    
 }
