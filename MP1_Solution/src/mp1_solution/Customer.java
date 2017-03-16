@@ -168,4 +168,15 @@ public class Customer {
     public Account deleteAccount(int index){
         return accounts.remove(index);
     }
+    
+    @Override
+    public String toString(){
+        String accountsString = "";
+        
+        for(int i = 0; i < accounts.size(); i++){
+            accountsString += System.lineSeparator() + accounts.get(i).toString();
+        }
+        
+        return firstName + "#" + lastName + "#" + customerId + "#" + dob + "#" + address + "#" + phoneNumber + "#" + pin + "#" + accounts.size() + accountsString;
+    }
 }
