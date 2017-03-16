@@ -17,6 +17,13 @@ public class Account {
     private double balance;
     ArrayList<Transaction> transactions;
 
+    public Account(){
+        accountType = null;
+        accountNumber = "";
+        balance = 0.0;
+        transactions = new ArrayList<>();
+    }
+    
     /**
      * @return the accountType
      */
