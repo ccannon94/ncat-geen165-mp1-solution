@@ -148,6 +148,14 @@ public class CyberBank {
         return null;
     }
     
+    public void loadBankData(String inputFileName){
+        
+    }
+    
+    public void saveBankData(String outputFileName){
+        
+    }
+    
     @Override
     public String toString(){
         String customersString = "";
