@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author CCannon
  */
 public class Customer {
+
     private String firstName;
     private String lastName;
     private String dob;
@@ -117,5 +118,43 @@ public class Customer {
      */
     public void setPin(int pin) {
         this.pin = pin;
+    }
+
+    /**
+     * @return number of Account objects in ArrayList
+     */
+    public int getNumAccounts() {
+        return accounts.size();
+    }
+
+    /**
+     * @param index of the Account user would like to access
+     * @return Account at given index
+     */
+    public Account getAccount(int index) {
+        return accounts.get(index);
+    }
+
+    /**
+     * @param index where user would like to insert Account
+     * @param item Account to be added to ArrayList
+     */
+    public void setAccount(int index, Account item) {
+        accounts.set(index, item);
+    }
+
+    /**
+     * @param item to add to ArrayList
+     */
+    public void addAccount(Account item) {
+        accounts.add(item);
+    }
+    
+    /**
+     * @param index of Account to remove
+     * @return Account removed from ArrayList
+     */
+    public Account deleteAccount(int index){
+        return accounts.remove(index);
     }
 }
