@@ -36,6 +36,8 @@ public class Main {
         trans2.setDescription("Chickfila point of sale");
         trans2.setTransactionType(TransactionType.debit);
         
+        myAcct.addTransaction(trans2);
+        
         JOptionPane.showMessageDialog(null, myAcct.toString());
     }
     
