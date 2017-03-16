@@ -15,6 +15,13 @@ public class Transaction {
     private String description;
     private double amount;
 
+    public Transaction(){
+        transactionType = null;
+        date = "";
+        description = "";
+        amount = 0.0;
+    }
+    
     /**
      * @return the transactionType
      */
