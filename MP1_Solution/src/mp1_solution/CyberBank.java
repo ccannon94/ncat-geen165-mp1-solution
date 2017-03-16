@@ -7,6 +7,7 @@ package mp1_solution;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -210,7 +211,16 @@ public class CyberBank {
     }
     
     public void saveBankData(String outputFileName){
-        
+        try {
+            PrintWriter pw = new PrintWriter(new File(outputFileName));
+            
+            pw.print(toString());
+            
+            pw.close();
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "Failed to Save Bank Data");
+            Logger.getLogger(CyberBank.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     @Override
