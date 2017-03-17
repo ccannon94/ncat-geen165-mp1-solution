@@ -7,7 +7,6 @@ package mp1_solution;
 
 import java.io.File;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 
 /**
  *
