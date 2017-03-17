@@ -166,6 +166,11 @@ public class ATM_UI extends javax.swing.JFrame {
         logOff_JButton.setEnabled(false);
 
         exit_JButton.setText("Exit");
+        exit_JButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exit_JButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,6 +231,10 @@ public class ATM_UI extends javax.swing.JFrame {
             pin_JPasswordField.setEnabled(false);
         }
     }//GEN-LAST:event_logOn_JButtonActionPerformed
+
+    private void exit_JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_JButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exit_JButtonActionPerformed
 
     
 
