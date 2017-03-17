@@ -160,6 +160,11 @@ public class ATM_UI extends javax.swing.JFrame {
 
         save_JButton.setText("Save");
         save_JButton.setEnabled(false);
+        save_JButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                save_JButtonActionPerformed(evt);
+            }
+        });
 
         logOff_JButton.setText("Log Off");
         logOff_JButton.setToolTipText("");
@@ -257,6 +262,10 @@ public class ATM_UI extends javax.swing.JFrame {
         
         activeCustomer = null;
     }//GEN-LAST:event_logOff_JButtonActionPerformed
+
+    private void save_JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save_JButtonActionPerformed
+        bank.saveBankData(saveFilePath);
+    }//GEN-LAST:event_save_JButtonActionPerformed
 
     
 
