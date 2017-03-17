@@ -5,6 +5,10 @@
  */
 package mp1_solution;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author CCannon
@@ -121,6 +125,11 @@ public class ATM_UI extends javax.swing.JFrame {
 
         withdrawal_JButton.setText("Withdraw");
         withdrawal_JButton.setEnabled(false);
+        withdrawal_JButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                withdrawal_JButtonActionPerformed(evt);
+            }
+        });
 
         deposit_JButton.setText("Deposit");
         deposit_JButton.setEnabled(false);
@@ -267,7 +276,39 @@ public class ATM_UI extends javax.swing.JFrame {
         bank.saveBankData(saveFilePath);
     }//GEN-LAST:event_save_JButtonActionPerformed
 
+    private void withdrawal_JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawal_JButtonActionPerformed
+        String selectedAccountNumber = (String)JOptionPane.showInputDialog(null, "Select the account to withdraw from:", bank.getBankName() + " Withdrawal", JOptionPane.PLAIN_MESSAGE, null, getAccountOptions(), getAccountOptions()[0]);
+        
+        selectedAccountNumber = selectedAccountNumber.split(" ")[2];
+        
+        String withdrawalAmountString = (String)JOptionPane.showInputDialog(null, "Enter an amount to withdraw", bank.getBankName() + " Withdrawal", JOptionPane.PLAIN_MESSAGE);
+        
+        Transaction withdrawal = new Transaction();
+        withdrawal.setAmount(Double.parseDouble(withdrawalAmountString.trim()));
+        withdrawal.setDescription("ATM Withdrawal");
+        withdrawal.setTransactionType(TransactionType.debit);
+        withdrawal.setDate(getTodaysDate());
+        
+        for(int i = 0; i < activeCustomer.getNumAccounts(); i++){
+            if(activeCustomer.getAccount(i).getAccountNumber().equals(selectedAccountNumber.trim()))
+                activeCustomer.getAccount(i).addTransaction(withdrawal);
+        }
+    }//GEN-LAST:event_withdrawal_JButtonActionPerformed
+
+    private Object[] getAccountOptions(){
+        Object[] accountArray = new Object[activeCustomer.getNumAccounts()];
+        for(int i = 0; i < activeCustomer.getNumAccounts(); i++){
+            accountArray[i] = activeCustomer.getAccount(i).getAccountType() + " - " + activeCustomer.getAccount(i).getAccountNumber();
+        }
+        return accountArray;
+    }
     
+    private String getTodaysDate(){
+        Date today = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+        
+        return format.format(today);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel account_JPanel;
