@@ -164,6 +164,11 @@ public class ATM_UI extends javax.swing.JFrame {
         logOff_JButton.setText("Log Off");
         logOff_JButton.setToolTipText("");
         logOff_JButton.setEnabled(false);
+        logOff_JButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOff_JButtonActionPerformed(evt);
+            }
+        });
 
         exit_JButton.setText("Exit");
         exit_JButton.addActionListener(new java.awt.event.ActionListener() {
@@ -235,6 +240,23 @@ public class ATM_UI extends javax.swing.JFrame {
     private void exit_JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_JButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exit_JButtonActionPerformed
+
+    private void logOff_JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOff_JButtonActionPerformed
+        deposit_JButton.setEnabled(false);
+        withdrawal_JButton.setEnabled(false);
+        transfer_JButton.setEnabled(false);
+        balance_JButton.setEnabled(false);
+        save_JButton.setEnabled(false);
+        logOff_JButton.setEnabled(false);
+        
+        customerId_JTextField.setEnabled(true);
+        pin_JPasswordField.setEnabled(true);
+        
+        customerId_JTextField.setText("");
+        pin_JPasswordField.setText("aaaa");
+        
+        activeCustomer = null;
+    }//GEN-LAST:event_logOff_JButtonActionPerformed
 
     
 
