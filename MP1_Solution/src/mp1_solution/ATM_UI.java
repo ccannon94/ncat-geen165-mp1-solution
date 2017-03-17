@@ -28,6 +28,8 @@ public class ATM_UI extends javax.swing.JFrame {
         this.bank = bank;
         bank.loadBankData(inputFilePath);
         saveFilePath = inputFilePath;
+        
+        bankName_JLabel.setText(bank.getBankName());
     }
     
     public ATM_UI(CyberBank bank, String inputFilePath, String saveFilePath){
@@ -35,6 +37,8 @@ public class ATM_UI extends javax.swing.JFrame {
         this.bank = bank;
         bank.loadBankData(inputFilePath);
         this.saveFilePath = saveFilePath;
+        
+        bankName_JLabel.setText(bank.getBankName());
     }
 
     /**
