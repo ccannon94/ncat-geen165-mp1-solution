@@ -362,7 +362,12 @@ public class ATM_UI extends javax.swing.JFrame {
         
         for(int i = 0; i < activeCustomer.getNumAccounts(); i++){
             if(activeCustomer.getAccount(i).getAccountNumber().equals(sourceAccountNumber.trim())){
-                activeCustomer.getAccount(i).addTransaction(withdrawal);
+                if(activeCustomer.getAccount(i).getBalance() >= withdrawal.getAmount()){
+                    activeCustomer.getAccount(i).addTransaction(withdrawal);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Transfer amount cannot be greater than source account balance", "Transfer Erro", JOptionPane.ERROR_MESSAGE);
+                    break;
+                }
             }else if(activeCustomer.getAccount(i).getAccountNumber().equals(destinationAccountNumber.trim())){
                 activeCustomer.getAccount(i).addTransaction(deposit);
             }
