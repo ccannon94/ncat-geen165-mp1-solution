@@ -212,21 +212,25 @@
         <Component class="javax.swing.JButton" name="withdrawal_JButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Withdraw"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="deposit_JButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Deposit"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="transfer_JButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Transfer"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="balance_JButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Balance"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -234,12 +238,14 @@
     <Component class="javax.swing.JButton" name="save_JButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Save"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="logOff_JButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Log Off"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="exit_JButton">

@@ -120,12 +120,16 @@ public class ATM_UI extends javax.swing.JFrame {
         account_JPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         withdrawal_JButton.setText("Withdraw");
+        withdrawal_JButton.setEnabled(false);
 
         deposit_JButton.setText("Deposit");
+        deposit_JButton.setEnabled(false);
 
         transfer_JButton.setText("Transfer");
+        transfer_JButton.setEnabled(false);
 
         balance_JButton.setText("Balance");
+        balance_JButton.setEnabled(false);
 
         javax.swing.GroupLayout account_JPanelLayout = new javax.swing.GroupLayout(account_JPanel);
         account_JPanel.setLayout(account_JPanelLayout);
@@ -155,9 +159,11 @@ public class ATM_UI extends javax.swing.JFrame {
         );
 
         save_JButton.setText("Save");
+        save_JButton.setEnabled(false);
 
         logOff_JButton.setText("Log Off");
         logOff_JButton.setToolTipText("");
+        logOff_JButton.setEnabled(false);
 
         exit_JButton.setText("Exit");
 
