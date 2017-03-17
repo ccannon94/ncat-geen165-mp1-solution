@@ -11,11 +11,17 @@ package mp1_solution;
  */
 public class ATM_UI extends javax.swing.JFrame {
 
+    private CyberBank bank;
+    String saveFilePath;
+    
     /**
      * Creates new form ATM_UI
      */
-    public ATM_UI() {
+    public ATM_UI(CyberBank bank, String inputFilePath) {
         initComponents();
+        this.bank = bank;
+        bank.loadBankData(inputFilePath);
+        saveFilePath = inputFilePath;
     }
 
     /**
