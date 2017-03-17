@@ -213,7 +213,7 @@ public class ATM_UI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void logOn_JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOn_JButtonActionPerformed
-        activeCustomer = bank.authenticateCustomer(Integer.parseInt(customerId_JTextField.getText()), Integer.parseInt(String.valueOf(pin_JPasswordField.getPassword())));
+        activeCustomer = bank.authenticateCustomer(Integer.parseInt(customerId_JTextField.getText().trim()), Integer.parseInt(String.valueOf(pin_JPasswordField.getPassword()).trim()));
         if(activeCustomer != null){
             deposit_JButton.setEnabled(true);
             withdrawal_JButton.setEnabled(true);
