@@ -40,17 +40,166 @@ public class ATM_UI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bankName_JLabel = new javax.swing.JLabel();
+        logon_JPanel = new javax.swing.JPanel();
+        customerId_JTextField = new javax.swing.JTextField();
+        pin_JTextField = new javax.swing.JPasswordField();
+        logOn_JButton = new javax.swing.JButton();
+        customerId_JLabel = new javax.swing.JLabel();
+        pin_JLabel = new javax.swing.JLabel();
+        account_JPanel = new javax.swing.JPanel();
+        withdrawal_JButton = new javax.swing.JButton();
+        deposit_JButton = new javax.swing.JButton();
+        transfer_JButton = new javax.swing.JButton();
+        balance_JButton = new javax.swing.JButton();
+        save_JButton = new javax.swing.JButton();
+        logOff_JButton = new javax.swing.JButton();
+        exit_JButton = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        bankName_JLabel.setText("Bank Name");
+
+        logon_JPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        customerId_JTextField.setText(" ");
+        customerId_JTextField.setToolTipText("");
+
+        pin_JTextField.setText("jPasswordField1");
+
+        logOn_JButton.setText("Log On");
+
+        customerId_JLabel.setText("Customer ID");
+
+        pin_JLabel.setText("PIN");
+
+        javax.swing.GroupLayout logon_JPanelLayout = new javax.swing.GroupLayout(logon_JPanel);
+        logon_JPanel.setLayout(logon_JPanelLayout);
+        logon_JPanelLayout.setHorizontalGroup(
+            logon_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logon_JPanelLayout.createSequentialGroup()
+                .addGroup(logon_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(logon_JPanelLayout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(logOn_JButton))
+                    .addGroup(logon_JPanelLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(logon_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(customerId_JLabel)
+                            .addComponent(pin_JLabel))
+                        .addGap(37, 37, 37)
+                        .addGroup(logon_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(logon_JPanelLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(pin_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(customerId_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(254, Short.MAX_VALUE))
+        );
+        logon_JPanelLayout.setVerticalGroup(
+            logon_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logon_JPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(logon_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(customerId_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(customerId_JLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(logon_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pin_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pin_JLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(logOn_JButton)
+                .addContainerGap())
+        );
+
+        account_JPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        withdrawal_JButton.setText("Withdraw");
+
+        deposit_JButton.setText("Deposit");
+
+        transfer_JButton.setText("Transfer");
+
+        balance_JButton.setText("Balance");
+
+        javax.swing.GroupLayout account_JPanelLayout = new javax.swing.GroupLayout(account_JPanel);
+        account_JPanel.setLayout(account_JPanelLayout);
+        account_JPanelLayout.setHorizontalGroup(
+            account_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(account_JPanelLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(account_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(balance_JButton)
+                    .addComponent(transfer_JButton)
+                    .addGroup(account_JPanelLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(deposit_JButton))
+                    .addComponent(withdrawal_JButton))
+                .addContainerGap(119, Short.MAX_VALUE))
+        );
+        account_JPanelLayout.setVerticalGroup(
+            account_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(account_JPanelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(withdrawal_JButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(deposit_JButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(transfer_JButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(balance_JButton)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        save_JButton.setText("Save");
+
+        logOff_JButton.setText("Log Off");
+        logOff_JButton.setToolTipText("");
+
+        exit_JButton.setText("Exit");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(272, 272, 272)
+                .addComponent(bankName_JLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(logon_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(account_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(save_JButton)
+                            .addComponent(logOff_JButton)
+                            .addComponent(exit_JButton))
+                        .addGap(104, 104, 104))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(bankName_JLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(account_JPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(logon_JPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(save_JButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(logOff_JButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(exit_JButton)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -59,5 +208,20 @@ public class ATM_UI extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel account_JPanel;
+    private javax.swing.JButton balance_JButton;
+    private javax.swing.JLabel bankName_JLabel;
+    private javax.swing.JLabel customerId_JLabel;
+    private javax.swing.JTextField customerId_JTextField;
+    private javax.swing.JButton deposit_JButton;
+    private javax.swing.JButton exit_JButton;
+    private javax.swing.JButton logOff_JButton;
+    private javax.swing.JButton logOn_JButton;
+    private javax.swing.JPanel logon_JPanel;
+    private javax.swing.JLabel pin_JLabel;
+    private javax.swing.JPasswordField pin_JTextField;
+    private javax.swing.JButton save_JButton;
+    private javax.swing.JButton transfer_JButton;
+    private javax.swing.JButton withdrawal_JButton;
     // End of variables declaration//GEN-END:variables
 }
