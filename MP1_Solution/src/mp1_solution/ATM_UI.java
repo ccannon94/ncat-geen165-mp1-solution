@@ -307,7 +307,11 @@ public class ATM_UI extends javax.swing.JFrame {
         
         for(int i = 0; i < activeCustomer.getNumAccounts(); i++){
             if(activeCustomer.getAccount(i).getAccountNumber().equals(selectedAccountNumber.trim()))
-                activeCustomer.getAccount(i).addTransaction(withdrawal);
+                if(activeCustomer.getAccount(i).getBalance() >= withdrawal.getAmount()){
+                    activeCustomer.getAccount(i).addTransaction(withdrawal);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Withdrawal amount cannot be greater than account balance.", "Withdrawal Error", JOptionPane.ERROR_MESSAGE);
+                }
         }
     }//GEN-LAST:event_withdrawal_JButtonActionPerformed
 
