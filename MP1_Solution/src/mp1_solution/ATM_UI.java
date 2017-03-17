@@ -221,6 +221,9 @@ public class ATM_UI extends javax.swing.JFrame {
             balance_JButton.setEnabled(true);
             save_JButton.setEnabled(true);
             logOff_JButton.setEnabled(true);
+            
+            customerId_JTextField.setEnabled(false);
+            pin_JPasswordField.setEnabled(false);
         }
     }//GEN-LAST:event_logOn_JButtonActionPerformed
 
