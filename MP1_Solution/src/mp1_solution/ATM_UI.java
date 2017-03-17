@@ -133,6 +133,11 @@ public class ATM_UI extends javax.swing.JFrame {
 
         deposit_JButton.setText("Deposit");
         deposit_JButton.setEnabled(false);
+        deposit_JButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deposit_JButtonActionPerformed(evt);
+            }
+        });
 
         transfer_JButton.setText("Transfer");
         transfer_JButton.setEnabled(false);
@@ -294,6 +299,25 @@ public class ATM_UI extends javax.swing.JFrame {
                 activeCustomer.getAccount(i).addTransaction(withdrawal);
         }
     }//GEN-LAST:event_withdrawal_JButtonActionPerformed
+
+    private void deposit_JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deposit_JButtonActionPerformed
+        String selectedAccountNumber = (String)JOptionPane.showInputDialog(null, "Select the account to deposit to:", bank.getBankName() + " Deposit", JOptionPane.PLAIN_MESSAGE, null, getAccountOptions(), getAccountOptions()[0]);
+        
+        selectedAccountNumber = selectedAccountNumber.split(" ")[2];
+        
+        String withdrawalAmountString = (String)JOptionPane.showInputDialog(null, "Enter an amount of deposit", bank.getBankName() + " Deposit", JOptionPane.PLAIN_MESSAGE);
+        
+        Transaction deposit = new Transaction();
+        deposit.setAmount(Double.parseDouble(withdrawalAmountString.trim()));
+        deposit.setDescription("ATM Deposit");
+        deposit.setTransactionType(TransactionType.credit);
+        deposit.setDate(getTodaysDate());
+        
+        for(int i = 0; i < activeCustomer.getNumAccounts(); i++){
+            if(activeCustomer.getAccount(i).getAccountNumber().equals(selectedAccountNumber.trim()))
+                activeCustomer.getAccount(i).addTransaction(deposit);
+        }
+    }//GEN-LAST:event_deposit_JButtonActionPerformed
 
     private Object[] getAccountOptions(){
         Object[] accountArray = new Object[activeCustomer.getNumAccounts()];
