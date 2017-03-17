@@ -241,6 +241,9 @@
             <Property name="text" type="java.lang.String" value="Balance"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="balance_JButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

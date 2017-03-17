@@ -150,6 +150,11 @@ public class ATM_UI extends javax.swing.JFrame {
 
         balance_JButton.setText("Balance");
         balance_JButton.setEnabled(false);
+        balance_JButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                balance_JButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout account_JPanelLayout = new javax.swing.GroupLayout(account_JPanel);
         account_JPanel.setLayout(account_JPanelLayout);
@@ -359,6 +364,15 @@ public class ATM_UI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_transfer_JButtonActionPerformed
+
+    private void balance_JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_balance_JButtonActionPerformed
+        String balances = "";
+        for(int i = 0; i < activeCustomer.getNumAccounts(); i++){
+            balances += activeCustomer.getAccount(i).getAccountType() + " - " + activeCustomer.getAccount(i).getAccountNumber() + " - $" + activeCustomer.getAccount(i).getBalance() + System.lineSeparator();
+        }
+        
+        JOptionPane.showMessageDialog(null, balances, bank.getBankName() + " Balance Report", JOptionPane.PLAIN_MESSAGE);
+    }//GEN-LAST:event_balance_JButtonActionPerformed
 
     private Object[] getAccountOptions(){
         Object[] accountArray = new Object[activeCustomer.getNumAccounts()];
