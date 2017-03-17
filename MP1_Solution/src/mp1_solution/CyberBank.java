@@ -186,7 +186,7 @@ public class CyberBank {
                     newAcct.setAccountType(AccountType.valueOf(accountLine[0]));
                     newAcct.setAccountNumber(accountLine[1]);
                     
-                    for(int j = 0; i< Integer.parseInt(accountLine[3]); i++){
+                    for(int j = 0; j< Integer.parseInt(accountLine[3]); j++){
                         Transaction newTrans = new Transaction();
                         
                         String[] transactionLine = reader.nextLine().split("#");
