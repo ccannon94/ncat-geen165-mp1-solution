@@ -156,7 +156,7 @@ public class Account {
             transactionsString += System.lineSeparator() + transactions.get(i).toString();
         }
         
-        return accountType + "#" + accountNumber + "" + balance + "#" + transactions.size() + transactionsString;
+        return accountType + "#" + accountNumber + "#" + balance + "#" + transactions.size() + transactionsString;
     }
     
 }
