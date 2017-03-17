@@ -335,6 +335,12 @@ public class ATM_UI extends javax.swing.JFrame {
     }//GEN-LAST:event_deposit_JButtonActionPerformed
 
     private void transfer_JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transfer_JButtonActionPerformed
+        if(activeCustomer.getNumAccounts() < 2){
+            JOptionPane.showMessageDialog(null, "Cannot transfer with only 1 account", "Transfer Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+                
+        
         String sourceAccountNumber = (String)JOptionPane.showInputDialog(null, "Select the account to transfer from:", bank.getBankName() + " Transfer", JOptionPane.PLAIN_MESSAGE, null, getAccountOptions(), getAccountOptions()[0]);
         
         sourceAccountNumber = sourceAccountNumber.split(" ")[2];
@@ -342,6 +348,11 @@ public class ATM_UI extends javax.swing.JFrame {
         String destinationAccountNumber = (String)JOptionPane.showInputDialog(null, "Select the account to transfer to:", bank.getBankName() + " Transfer", JOptionPane.PLAIN_MESSAGE, null, getAccountOptions(), getAccountOptions()[0]);
         
         destinationAccountNumber = destinationAccountNumber.split(" ")[2];
+        
+        if(sourceAccountNumber.trim().equals(destinationAccountNumber.trim())){
+            JOptionPane.showMessageDialog(null, "Cannot transfer to the same account", "Transfer Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         
         String transferAmountString = (String)JOptionPane.showInputDialog(null, "Enter an amount to transfer", bank.getBankName() + " Transfer", JOptionPane.PLAIN_MESSAGE);
         
