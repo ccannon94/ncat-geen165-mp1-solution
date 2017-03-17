@@ -232,6 +232,9 @@
             <Property name="text" type="java.lang.String" value="Transfer"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="transfer_JButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="balance_JButton">
           <Properties>

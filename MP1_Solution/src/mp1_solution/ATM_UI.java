@@ -5,6 +5,7 @@
  */
 package mp1_solution;
 
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -141,6 +142,11 @@ public class ATM_UI extends javax.swing.JFrame {
 
         transfer_JButton.setText("Transfer");
         transfer_JButton.setEnabled(false);
+        transfer_JButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                transfer_JButtonActionPerformed(evt);
+            }
+        });
 
         balance_JButton.setText("Balance");
         balance_JButton.setEnabled(false);
@@ -305,10 +311,10 @@ public class ATM_UI extends javax.swing.JFrame {
         
         selectedAccountNumber = selectedAccountNumber.split(" ")[2];
         
-        String withdrawalAmountString = (String)JOptionPane.showInputDialog(null, "Enter an amount of deposit", bank.getBankName() + " Deposit", JOptionPane.PLAIN_MESSAGE);
+        String depositAmountString = (String)JOptionPane.showInputDialog(null, "Enter an amount of deposit", bank.getBankName() + " Deposit", JOptionPane.PLAIN_MESSAGE);
         
         Transaction deposit = new Transaction();
-        deposit.setAmount(Double.parseDouble(withdrawalAmountString.trim()));
+        deposit.setAmount(Double.parseDouble(depositAmountString.trim()));
         deposit.setDescription("ATM Deposit");
         deposit.setTransactionType(TransactionType.credit);
         deposit.setDate(getTodaysDate());
@@ -318,6 +324,41 @@ public class ATM_UI extends javax.swing.JFrame {
                 activeCustomer.getAccount(i).addTransaction(deposit);
         }
     }//GEN-LAST:event_deposit_JButtonActionPerformed
+
+    private void transfer_JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transfer_JButtonActionPerformed
+        String sourceAccountNumber = (String)JOptionPane.showInputDialog(null, "Select the account to transfer from:", bank.getBankName() + " Transfer", JOptionPane.PLAIN_MESSAGE, null, getAccountOptions(), getAccountOptions()[0]);
+        
+        sourceAccountNumber = sourceAccountNumber.split(" ")[2];
+        
+        String destinationAccountNumber = (String)JOptionPane.showInputDialog(null, "Select the account to transfer to:", bank.getBankName() + " Transfer", JOptionPane.PLAIN_MESSAGE, null, getAccountOptions(), getAccountOptions()[0]);
+        
+        destinationAccountNumber = destinationAccountNumber.split(" ")[2];
+        
+        String transferAmountString = (String)JOptionPane.showInputDialog(null, "Enter an amount to transfer", bank.getBankName() + " Transfer", JOptionPane.PLAIN_MESSAGE);
+        
+        Object[] args = {sourceAccountNumber, destinationAccountNumber};
+        MessageFormat fmt = new MessageFormat("Transfer from account {0} to {1}");
+        
+        Transaction deposit = new Transaction();
+        deposit.setAmount(Double.parseDouble(transferAmountString.trim()));
+        deposit.setDescription(fmt.format(args));
+        deposit.setTransactionType(TransactionType.credit);
+        deposit.setDate(getTodaysDate());
+        
+        Transaction withdrawal = new Transaction();
+        withdrawal.setAmount(Double.parseDouble(transferAmountString.trim()));
+        withdrawal.setDescription(fmt.format(args));
+        withdrawal.setTransactionType(TransactionType.debit);
+        withdrawal.setDate(getTodaysDate());
+        
+        for(int i = 0; i < activeCustomer.getNumAccounts(); i++){
+            if(activeCustomer.getAccount(i).getAccountNumber().equals(sourceAccountNumber.trim())){
+                activeCustomer.getAccount(i).addTransaction(withdrawal);
+            }else if(activeCustomer.getAccount(i).getAccountNumber().equals(destinationAccountNumber.trim())){
+                activeCustomer.getAccount(i).addTransaction(deposit);
+            }
+        }
+    }//GEN-LAST:event_transfer_JButtonActionPerformed
 
     private Object[] getAccountOptions(){
         Object[] accountArray = new Object[activeCustomer.getNumAccounts()];
