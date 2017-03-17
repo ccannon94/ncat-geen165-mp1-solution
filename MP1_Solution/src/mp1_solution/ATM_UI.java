@@ -12,7 +12,8 @@ package mp1_solution;
 public class ATM_UI extends javax.swing.JFrame {
 
     private CyberBank bank;
-    String saveFilePath;
+    private String saveFilePath;
+    private Customer activeCustomer;
     
     /**
      * Creates new form ATM_UI
@@ -43,7 +44,7 @@ public class ATM_UI extends javax.swing.JFrame {
         bankName_JLabel = new javax.swing.JLabel();
         logon_JPanel = new javax.swing.JPanel();
         customerId_JTextField = new javax.swing.JTextField();
-        pin_JTextField = new javax.swing.JPasswordField();
+        pin_JPasswordField = new javax.swing.JPasswordField();
         logOn_JButton = new javax.swing.JButton();
         customerId_JLabel = new javax.swing.JLabel();
         pin_JLabel = new javax.swing.JLabel();
@@ -65,9 +66,14 @@ public class ATM_UI extends javax.swing.JFrame {
         customerId_JTextField.setText(" ");
         customerId_JTextField.setToolTipText("");
 
-        pin_JTextField.setText("aaaa");
+        pin_JPasswordField.setText("aaaa");
 
         logOn_JButton.setText("Log On");
+        logOn_JButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOn_JButtonActionPerformed(evt);
+            }
+        });
 
         customerId_JLabel.setText("Customer ID");
 
@@ -88,7 +94,7 @@ public class ATM_UI extends javax.swing.JFrame {
                         .addGroup(logon_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(customerId_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(logon_JPanelLayout.createSequentialGroup()
-                                .addComponent(pin_JTextField)
+                                .addComponent(pin_JPasswordField)
                                 .addGap(97, 97, 97))))
                     .addGroup(logon_JPanelLayout.createSequentialGroup()
                         .addGap(137, 137, 137)
@@ -104,7 +110,7 @@ public class ATM_UI extends javax.swing.JFrame {
                     .addComponent(customerId_JLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(logon_JPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pin_JTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pin_JPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pin_JLabel))
                 .addGap(18, 18, 18)
                 .addComponent(logOn_JButton)
@@ -200,6 +206,18 @@ public class ATM_UI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void logOn_JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOn_JButtonActionPerformed
+        activeCustomer = bank.authenticateCustomer(Integer.parseInt(customerId_JTextField.getText()), Integer.parseInt(pin_JPasswordField.getPassword().toString()));
+        if(activeCustomer != null){
+            deposit_JButton.setEnabled(true);
+            withdrawal_JButton.setEnabled(true);
+            transfer_JButton.setEnabled(true);
+            balance_JButton.setEnabled(true);
+            save_JButton.setEnabled(true);
+            logOff_JButton.setEnabled(true);
+        }
+    }//GEN-LAST:event_logOn_JButtonActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -214,7 +232,7 @@ public class ATM_UI extends javax.swing.JFrame {
     private javax.swing.JButton logOn_JButton;
     private javax.swing.JPanel logon_JPanel;
     private javax.swing.JLabel pin_JLabel;
-    private javax.swing.JPasswordField pin_JTextField;
+    private javax.swing.JPasswordField pin_JPasswordField;
     private javax.swing.JButton save_JButton;
     private javax.swing.JButton transfer_JButton;
     private javax.swing.JButton withdrawal_JButton;
