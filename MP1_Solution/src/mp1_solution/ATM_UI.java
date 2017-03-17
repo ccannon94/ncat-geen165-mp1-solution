@@ -23,6 +23,13 @@ public class ATM_UI extends javax.swing.JFrame {
         bank.loadBankData(inputFilePath);
         saveFilePath = inputFilePath;
     }
+    
+    public ATM_UI(CyberBank bank, String inputFilePath, String saveFilePath){
+        initComponents();
+        this.bank = bank;
+        bank.loadBankData(inputFilePath);
+        this.saveFilePath = saveFilePath;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
