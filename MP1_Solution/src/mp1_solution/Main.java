@@ -7,6 +7,7 @@ package mp1_solution;
 
 import java.io.File;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
 /**
  *
@@ -40,8 +41,8 @@ public class Main {
             outputFile = args[1];
         }
         
-        bank.loadBankData(inputFile);
-        
-        bank.saveBankData(outputFile);
+        ATM_UI activeATM = new ATM_UI(bank, inputFile, outputFile);
+        activeATM.setVisible(true);
+        activeATM.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
